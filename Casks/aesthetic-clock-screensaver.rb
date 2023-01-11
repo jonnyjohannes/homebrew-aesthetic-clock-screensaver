@@ -6,7 +6,6 @@ cask "aesthetic-clock-screensaver" do
   name "AestheticClock"
   desc "Aesthetic Clock Screensaver"
   homepage "https://github.com/jonnyjohannes/AestheticClock"
-  license "mit"
 
   screen_saver "AestheticClock-#{version}/AestheticClock.saver"
 
