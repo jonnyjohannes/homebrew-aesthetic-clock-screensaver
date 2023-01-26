@@ -1,6 +1,6 @@
 cask "aesthetic-clock-screensaver" do
-  version "0.0.1-alpha"
-  sha256 "7687462474597c03a52967756edb44f749a1d4ac9bff263e5659f77effc0ffb3"
+  version "1.0.0-alpha"
+  sha256 "7e8e9fd6ed033a1b5fcbb16a92bf8bb1da0b5fadc31a669c32927cb18272aeea"
 
   url "https://github.com/jonnyjohannes/AestheticClock/archive/refs/tags/v#{version}.tar.gz"
   name "AestheticClock"
