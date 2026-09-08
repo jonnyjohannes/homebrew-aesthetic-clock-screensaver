@@ -7,21 +7,13 @@ cask "aesthetic-clock-screensaver" do
   desc "Aesthetic Clock Screensaver"
   homepage "https://github.com/jonnyjohannes/AestheticClock"
 
-  screen_saver "AestheticClock-#{version}/AestheticClock.saver"
-
-  preflight_steps do
-    run "rm", args: ["-rf", "#{Dir.home}/Library/Screen Savers/AestheticClock.saver"]
-  end
-
-  postflight_steps do
-    if MacOS.version >= :big_sur
-      run "xattr",
-          args: ["-d", "com.apple.quarantine", "#{Dir.home}/Library/Screen Savers/AestheticClock.saver"]
-    end
-  end
+  stage_only true
 
   caveats <<~EOS
-    NOTE: Enable the screensaver named "AestheticClock" in "Desktop & Screen saver".
+    The screensaver file is staged here:
+    `open "#{staged_path}/AestheticClock-#{version}/AestheticClock.saver"`
+
+    After opening it, enable "AestheticClock" in "Desktop & Screen saver".
     `open /System/Library/PreferencePanes/DesktopScreenEffectsPref.prefPane`
   EOS
 end
