@@ -10,13 +10,13 @@ cask "aesthetic-clock-screensaver" do
   screen_saver "AestheticClock-#{version}/AestheticClock.saver"
 
   preflight_steps do
-    system_command "rm", args: ["-rf", "#{Dir.home}/Library/Screen Savers/AestheticClock.saver"]
+    run "rm", args: ["-rf", "#{Dir.home}/Library/Screen Savers/AestheticClock.saver"]
   end
 
   postflight_steps do
     if MacOS.version >= :big_sur
-      system_command "xattr",
-                     args: ["-d", "com.apple.quarantine", "#{Dir.home}/Library/Screen Savers/AestheticClock.saver"]
+      run "xattr",
+          args: ["-d", "com.apple.quarantine", "#{Dir.home}/Library/Screen Savers/AestheticClock.saver"]
     end
   end
 
